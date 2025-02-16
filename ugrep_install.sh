@@ -15,3 +15,5 @@ afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
 
 # https://github.com/SBULeeLab/LinguaFranca-FSE19/tree/master/data/production-regexes
 # https://github.com/TheRenegadeCoder/sample-programs/tree/main/archive
+
+# get uniq-regexes-8.json and archive respectively
