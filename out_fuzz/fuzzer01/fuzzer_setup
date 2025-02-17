@@ -1,0 +1,6 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=../ugrep/bin/ug
+AFL_CUSTOM_INFO_PROGRAM_ARGV=-nr --color=never -e @@ input_texts
+AFL_CUSTOM_INFO_OUT=out_fuzz/fuzzer01
+# command line:
+'afl-fuzz' '-i' 'regexes_examples' '-o' 'out_fuzz' '-M' 'fuzzer01' '-V' '18060' '--' '../ugrep/bin/ug' '-nr' '--color=never' '-e' '@@' 'input_texts'

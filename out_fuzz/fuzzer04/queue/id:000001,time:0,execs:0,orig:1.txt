@@ -1,0 +1,1 @@
+^domain_update_ns_(?:add|del|set)$
