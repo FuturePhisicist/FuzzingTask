@@ -7,13 +7,17 @@
 # export PYTHONPATH=`dirname /home/fph/msu/fuzzing_test/FuzzingTask/mutator/regex_mutator_1.py`
 # export AFL_PYTHON_MODULE=regex_mutator_1
 
+cd ~/msu/fuzzing_test/FuzzingTask
+
 export PYTHONPATH=`dirname /home/fph/msu/fuzzing_test/FuzzingTask/mutator/regex_mutator_my.py`
 export AFL_PYTHON_MODULE=regex_mutator_my
 
-AFL_CUSTOM_MUTATOR_ONLY=1 afl-fuzz -i regexes_examples -o out_mutated_fuzz1 -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+export AFL_CUSTOM_MUTATOR_ONLY=1 # if needed
 
-AFL_CUSTOM_MUTATOR_ONLY=1 afl-fuzz -i regexes_examples -o out_mutated_fuzz1 -S fuzzer02 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-fuzz -i regexes_examples -o out_mutated_fuzz2 -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
 
-AFL_CUSTOM_MUTATOR_ONLY=1 afl-fuzz -i regexes_examples -o out_mutated_fuzz1 -S fuzzer03 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-fuzz -i regexes_examples -o out_mutated_fuzz2 -S fuzzer02 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
 
-AFL_CUSTOM_MUTATOR_ONLY=1 afl-fuzz -i regexes_examples -o out_mutated_fuzz1 -S fuzzer04 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-fuzz -i regexes_examples -o out_mutated_fuzz2 -S fuzzer03 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+
+afl-fuzz -i regexes_examples -o out_mutated_fuzz2 -S fuzzer04 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
