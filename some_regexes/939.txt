@@ -1,0 +1,1 @@
+^\s+inet6\s+([^\s%]+)%\S+\s+prefixlen

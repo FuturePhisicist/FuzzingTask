@@ -1,0 +1,1 @@
+^(|Locator_|loc_)(|us-gaap_)CashAndCashEquivalentsPeriodIncreaseDecrease[_a-z0-9]+

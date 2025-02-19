@@ -1,0 +1,1 @@
+url\('\/assets\/global-img-absolute\.svg'\)

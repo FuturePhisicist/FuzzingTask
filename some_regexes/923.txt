@@ -1,0 +1,1 @@
+add_index "key_tests", \["awesome"\], name: "index_key_tests_on_awesome", type: :fulltext

@@ -1,0 +1,1 @@
+(^|[^0-9A-Za-zªµºÀ-ÖØ-öø-ɏḀ-ỿⱠ-ⱿꜢ-ꞈꞋ-ꞎꞐ-ꞓꞠ-Ɦꟸ-ꟿ])((?:[1I](?:\.[\s\xa0]*Mach?|[\s\xa0]*Mach?)abaeorum)|(?:1Macc)|(?:Liber[\s\xa0]*(?:I[\s\xa0]*Maccabaeorum|Maccabaeorum[\s\xa0]*I)|Machabaeorum[\s\xa0]*I|[1I]\.?[\s\xa0]*Mac))(?:(?=[\d\s\xa0.:,;\x1e\x1f&\(\)\uff08\uff09\[\]\/"'\*=~\-\u2013\u2014])|$)

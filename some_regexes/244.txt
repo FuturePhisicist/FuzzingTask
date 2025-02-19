@@ -1,0 +1,1 @@
+\.(txt|htm|html|md|xml|js|min|map|css|scss|less|svg)$

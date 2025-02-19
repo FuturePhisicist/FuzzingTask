@@ -1,0 +1,1 @@
+(2048\s+tile!|HOW\s+TO\s+PLAY:|arrow\s+keys|merge\s+into\s+one!)

@@ -1,0 +1,1 @@
+url=artifact://.+?tmp/screenshots/failures_x\.png

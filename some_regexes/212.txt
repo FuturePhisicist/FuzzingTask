@@ -1,0 +1,1 @@
+_(min|max)_index$

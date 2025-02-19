@@ -1,0 +1,1 @@
+^http:\/\/img[0123]\.example\.com\/avatars\/data\?\d*$

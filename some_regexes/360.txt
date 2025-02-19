@@ -1,0 +1,1 @@
+^integrate_(.*)_(?:version)(.*)_(?:from)(.*)

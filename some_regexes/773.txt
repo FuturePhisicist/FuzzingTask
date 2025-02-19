@@ -1,0 +1,1 @@
+\G(.*?)<!--\s*(IF|ELSIF|ELSE|ENDIF)\b\s*(.*?)\s*-->

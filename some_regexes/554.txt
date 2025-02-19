@@ -1,0 +1,1 @@
+^ReferenceError: foo is not defined$

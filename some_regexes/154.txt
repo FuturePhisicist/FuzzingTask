@@ -1,0 +1,8 @@
+
+	        \A   	         #anchor at start
+	        (
+	        	(?:\d\d\d)?
+				\d{9}[0-9X]
+			)
+	        \z	             #anchor at end
+	                  

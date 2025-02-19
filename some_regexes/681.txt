@@ -1,0 +1,1 @@
+delete node RSpec-test-vm

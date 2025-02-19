@@ -1,0 +1,1 @@
+t.text\s+"text_ucs2_unicode_ci",(?:\s+limit: 65535,)?\s+collation: "ucs2_unicode_ci"$

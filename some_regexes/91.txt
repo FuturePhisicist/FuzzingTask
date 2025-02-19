@@ -1,0 +1,4 @@
+
+        (\[[\ x]\])[ \t]+       # tasklist marker = \1
+        (.*)                   # list item text = \2
+    

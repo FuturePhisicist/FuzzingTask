@@ -1,0 +1,1 @@
+[A-Za-z\uFF21-\uFF3A\uFF41-\uFF5A]

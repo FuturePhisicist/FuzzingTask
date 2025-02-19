@@ -1,0 +1,1 @@
+\s+function\s+copy_yylloc\b[^]*?return\s+rv[^}]+\}

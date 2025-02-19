@@ -1,0 +1,1 @@
+(?<![<>])(<T>[Aa]n<\/T> <N pl="n" gnt="n" gnd="f">Iam\x{e1}ice<\/N>)(?![<>])

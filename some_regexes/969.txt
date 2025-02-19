@@ -1,0 +1,1 @@
+<CONTENT_(\w+(?:$key_value_pattern)*)/?>

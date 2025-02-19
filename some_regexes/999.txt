@@ -1,0 +1,1 @@
+this VM lacks a vApp configuration and cannot have vApp properties set on it

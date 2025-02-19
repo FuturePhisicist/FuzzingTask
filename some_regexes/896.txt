@@ -1,0 +1,1 @@
+^(SYSTEM|SERVER|CONSTANT):(\w+)$

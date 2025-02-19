@@ -1,0 +1,1 @@
+(?P<option>^\w+) (?P<operator>[~=]{1,2}) (?P<value>.+)$

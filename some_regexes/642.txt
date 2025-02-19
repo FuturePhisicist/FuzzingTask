@@ -1,0 +1,1 @@
+\.(xml|html|txt|md)$

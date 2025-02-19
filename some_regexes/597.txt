@@ -1,0 +1,1 @@
+^Reply rate \[replies\/s\]: min .+ avg ([0-9]*?\.?[0-9]+) 

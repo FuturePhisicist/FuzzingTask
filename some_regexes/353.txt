@@ -1,0 +1,1 @@
+typescript-starter[\s\S]*Enter the new package name

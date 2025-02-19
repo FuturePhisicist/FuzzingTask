@@ -1,0 +1,1 @@
+<\s*PKIT_COMPONENT($key_value_pattern+)\s*/?>(<\s*/PKIT_COMPONENT\s*>)?

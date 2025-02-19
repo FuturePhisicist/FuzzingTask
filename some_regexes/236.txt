@@ -1,0 +1,1 @@
+<align left>[\x{a0}\x{b7}]+<\/align>

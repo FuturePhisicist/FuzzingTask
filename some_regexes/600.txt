@@ -1,0 +1,1 @@
+t\.decimal\s+"decimal_array_default",\s+default: \["1.23", "3.45"\],\s+array: true

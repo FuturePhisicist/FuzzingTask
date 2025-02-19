@@ -1,0 +1,10 @@
+\
+         (?P<note>[a-gA-G][=_\\#]*[,']*)|\
+         (?P<part>\\*[a-zA-Z_][a-zA-Z0-9_]*)|\
+         (?P<symbol>[\\.\\-x"%])|\
+         (?P<number>\\d+)|\
+         (?P<barline>\\|)|\
+         (?P<comment>//[^\n]*)|\
+         (?P<whitespace>([\t ]|;)+)|\
+         (?P<error>.)\
+         

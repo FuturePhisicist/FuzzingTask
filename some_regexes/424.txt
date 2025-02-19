@@ -1,0 +1,1 @@
+lighting is activated (\d+\.\d) hours

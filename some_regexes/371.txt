@@ -1,0 +1,1 @@
+Could not verify the SSL certificate for http://www.uri-to-fetch.com/api/v2/endpoint

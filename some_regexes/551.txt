@@ -1,0 +1,1 @@
+hap update AirQualitySensor AirQuality 0

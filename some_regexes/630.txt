@@ -1,0 +1,1 @@
+(_(d|h)ats\.c|_lats\.dats|_sats\.c|_stub\.h)$

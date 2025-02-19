@@ -1,0 +1,1 @@
+^https://github\\.com/evilsocket/arc/releases/tag/v([\\d\\.a-z]+)$

@@ -1,0 +1,1 @@
+ceph_monitor_latency_seconds{cluster="ceph",monitor="test-mon03"} 0.000582

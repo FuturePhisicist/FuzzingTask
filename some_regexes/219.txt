@@ -1,0 +1,1 @@
+(?P<generation>J-PHONE|Vodafone|SoftBank)/(?P<version>[\d\.]*)/(?P<model>[^/\[]*)

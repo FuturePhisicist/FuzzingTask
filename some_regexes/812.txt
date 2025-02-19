@@ -1,0 +1,1 @@
+<link [^>]*js\/chunk-vendors\.\w{8}\.js rel=modulepreload as=script crossorigin=use-credentials>

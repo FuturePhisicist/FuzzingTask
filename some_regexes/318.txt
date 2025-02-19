@@ -1,0 +1,1 @@
+^( *(?:register\s+)?(.*\S)\s+hval\s*=\s*)(?=len;)

@@ -1,0 +1,1 @@
+expected #<Object:.*> to respond to "method_one", "method_two"

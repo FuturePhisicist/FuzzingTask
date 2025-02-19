@@ -1,0 +1,1 @@
+^Sec-WebSocket-Accept:\s+OfS0wDaT5NoxF2gqm7Zj2YtetzM=\s+$

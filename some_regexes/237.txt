@@ -1,0 +1,1 @@
+.*Perform a new search(.|\n)*

@@ -1,0 +1,1 @@
+Waiting for tls-sni-01 challenge to be deployed into .*\nTLS-SNI challenge certificate is deployed, you can now request the actual certificate

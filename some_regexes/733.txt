@@ -1,0 +1,1 @@
+\.(?:gtf|gff3?|txt|refflat|genepred|ucsc)(?:\.gz)?$

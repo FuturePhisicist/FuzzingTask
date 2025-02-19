@@ -1,0 +1,1 @@
+^'Gemfile' has a development dependency on the current version of juwelier$

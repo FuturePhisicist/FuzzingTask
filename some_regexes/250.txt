@@ -1,0 +1,1 @@
+.*(Email|Correspondence|Contributed equally|Dated|This work|Electronic address|The authors|Index|Received|Draft):?.*

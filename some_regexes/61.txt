@@ -1,0 +1,1 @@
+ST_intersects\(ST_convexhull\(ST_SetSRID\("__spatial_ids_join__"."the_geom", 4326\)\), ST_buffer\("bars"."the_other_geom", 100\)\)

@@ -1,0 +1,1 @@
+could not prepare statement.*1 no such table: BogusTable

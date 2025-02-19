@@ -1,0 +1,1 @@
+set_table_comment 'users', 'Information about users'

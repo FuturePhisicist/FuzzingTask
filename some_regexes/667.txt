@@ -1,0 +1,1 @@
+\.(jpeg|png|ico|cur|eot|ttf|woff|woff2)$

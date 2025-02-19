@@ -1,0 +1,1 @@
+ESLint configuration in rule-tester is invalid.

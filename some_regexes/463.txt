@@ -1,0 +1,3 @@
+Base\s*Column\s*Name \s+ Compare\s*Column\s*Name \s+ Base\s*Dtype \s+ Compare\sDtype \s*
+            \#\sMatches \s* \#\sMismatches \n
+            -+ \s+ -+ \s+ -+ \s+ -+ \s+ -+ \s+ -+

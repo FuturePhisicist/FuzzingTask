@@ -1,0 +1,1 @@
+(<S>(?:[Cc]ois|[Dd]\x{e1}la|[Ff]earacht|[Tt]impeall|[Tt]rasna)<\/S> <T>[Aa]n<\/T> )<B><Z>(?:<[^>]+>)+<\/Z>(mh\x{e9}id)<\/B>()

@@ -1,0 +1,1 @@
+(?:DirectMap4k|DirectMap2M):\s+(\d+)

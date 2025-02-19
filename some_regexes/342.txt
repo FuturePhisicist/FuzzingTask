@@ -1,0 +1,1 @@
+(class|(?:@)?interface|enum)\s+(\w+)

@@ -1,0 +1,1 @@
+^whitelist_from_rcvd\s+(\S+)\s+(\S+)$

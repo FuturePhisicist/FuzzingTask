@@ -1,0 +1,1 @@
+^PHP Fatal error: Call to undefined method Test::iDontExist\(\)$

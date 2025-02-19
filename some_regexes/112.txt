@@ -1,0 +1,1 @@
+\#<SelectableAttr::Enum::Entry:[\.0-9a-f]+\ @id=nil,\ @key=nil,\ @name=nil,\ @options=nil>

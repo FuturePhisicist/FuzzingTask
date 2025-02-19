@@ -1,5 +1,6 @@
 core.*
 code_samples/
 uniq-regexes-8.json
+all_regexes/
 
 **/__pycache__/

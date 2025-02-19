@@ -1,0 +1,1 @@
+^I generate a theme for signin and signup$

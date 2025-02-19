@@ -1,0 +1,1 @@
+assertion "may throw exception" returned TypeError.*for value undefined

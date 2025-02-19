@@ -1,0 +1,1 @@
+\A($number)\s*<=$X<=\s*($number)\z

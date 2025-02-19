@@ -1,0 +1,1 @@
+Flash/(default|success|error|info|warning)$

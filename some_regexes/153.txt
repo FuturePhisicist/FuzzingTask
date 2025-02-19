@@ -1,0 +1,1 @@
+.*summary.*py26\W+skipped\W+tests.*

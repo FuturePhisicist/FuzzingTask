@@ -1,0 +1,1 @@
+(?ix) (?<=^|;) \s* (cards4|datalines4) \s* ; \s* (\S.*)?
