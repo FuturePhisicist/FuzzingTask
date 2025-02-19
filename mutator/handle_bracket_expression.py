@@ -2,10 +2,6 @@ import random
 
 from my_regex_constants import *
 
-# --------------------------------
-# 2) Handle Bracket Expressions
-# --------------------------------
-
 def handle_bracket_expression(data):
 	bracket_pairs = find_bracket_pairs(data)
 	if not bracket_pairs:
@@ -40,7 +36,7 @@ def mutate_bracket_content(inside):
 	Tweak the content inside a bracket expression:
 	- Insert '^' at the start (negation)
 	- Flip random characters
-	- Insert random range
+	- ! Insert random range	# not implemented, because the whole expressions can be added
 	"""
 	# Convert to list for easier changes
 	chars = inside[:]
