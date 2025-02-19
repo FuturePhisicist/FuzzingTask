@@ -1,10 +1,13 @@
-# sudo cp afl-clang-fast++ /usr/local/bin/
+git clone https://github.com/AFLplusplus/AFLplusplus.git
 
-# Works:!
-# cd /usr/local/bin/
-# sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-clang-fast .
-# sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-clang-fast++ .
-# sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-showmap .
+cd /usr/local/bin/
+sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-clang-fast .
+sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-clang-fast++ .
+sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-cmin .
+sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-fuzz .
+sudo ln -s /home/fph/msu/fuzzing_test/AFLplusplus/afl-showmap .
+
+git clone https://github.com/Genivia/ugrep.git
 
 CC=afl-clang-fast CXX=afl-clang-fast++ ./build.sh --disable-shared
 
@@ -17,8 +20,3 @@ sudo bash -c 'echo performance | tee cpu*/cpufreq/scaling_governor'
 cd ~/msu/fuzzing_test/FuzzingTask
 
 afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
-
-# https://github.com/SBULeeLab/LinguaFranca-FSE19/tree/master/data/production-regexes
-# https://github.com/TheRenegadeCoder/sample-programs/tree/main/archive
-
-# get uniq-regexes-8.json and archive respectively

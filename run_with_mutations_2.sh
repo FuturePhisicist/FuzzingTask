@@ -8,4 +8,4 @@ export AFL_PYTHON_MODULE=regex_mutator_my1
 
 # export AFL_CUSTOM_MUTATOR_ONLY=1 # if needed
 
-afl-fuzz -i regexes_examples -o out_mutated -S fuzzer02 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-fuzz -i unique_regexes -o final/with_mutator -S fuzzer02 -V 18000 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts

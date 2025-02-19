@@ -8,7 +8,7 @@ export AFL_PYTHON_MODULE=regex_mutator_my1
 
 # export AFL_CUSTOM_MUTATOR_ONLY=1 # if needed
 
-afl-fuzz -i regexes_examples -o out_mutated -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-fuzz -i unique_regexes -o final/with_mutator -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
 
 # FOR DEBUG:
 # export PYTHONPATH=`dirname /home/fph/msu/fuzzing_test/FuzzingTask/mutator/regex_mutator_my1.py`
@@ -16,4 +16,4 @@ afl-fuzz -i regexes_examples -o out_mutated -M fuzzer01 -V 18060 -- ../ugrep/bin
 
 # export AFL_CUSTOM_MUTATOR_ONLY=1 # if needed
 
-# afl-fuzz -i regexes_examples -o out_mutated_test -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+# afl-fuzz -i unique_regexes -o final/no_mutator -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
