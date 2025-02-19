@@ -16,4 +16,4 @@ afl-fuzz -i unique_regexes -o final/with_mutator -M fuzzer01 -V 18060 -- ../ugre
 
 # export AFL_CUSTOM_MUTATOR_ONLY=1 # if needed
 
-# afl-fuzz -i unique_regexes -o final/no_mutator -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+# afl-fuzz -i unique_regexes -o out_fuzz_test -M fuzzer01 -V 18060 -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
