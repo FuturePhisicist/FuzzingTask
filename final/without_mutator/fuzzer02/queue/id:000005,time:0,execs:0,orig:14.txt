@@ -1,0 +1,1 @@
+\beighty\s*-?\s*six\b

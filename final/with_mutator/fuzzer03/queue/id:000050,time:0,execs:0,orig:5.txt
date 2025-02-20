@@ -1,0 +1,1 @@
+(?:\Q$Config{exe_ext}\E)?$

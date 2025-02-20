@@ -1,0 +1,6 @@
+../ugrep/bin/ug
+-nr
+--color=never
+-e
+@@
+input_texts

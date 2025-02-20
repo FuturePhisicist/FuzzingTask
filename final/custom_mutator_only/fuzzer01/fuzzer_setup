@@ -1,0 +1,8 @@
+# environment variables:
+AFL_CUSTOM_MUTATOR_ONLY=1
+AFL_CUSTOM_INFO_PROGRAM=../ugrep/bin/ug
+AFL_CUSTOM_INFO_PROGRAM_ARGV=-nr --color=never -e @@ input_texts
+AFL_CUSTOM_INFO_OUT=final/custom_mutator_only/fuzzer01
+AFL_PYTHON_MODULE=regex_mutator_my1
+# command line:
+'afl-fuzz' '-i' 'unique_regexes' '-o' 'final/custom_mutator_only' '-M' 'fuzzer01' '-V' '18060' '--' '../ugrep/bin/ug' '-nr' '--color=never' '-e' '@@' 'input_texts'
