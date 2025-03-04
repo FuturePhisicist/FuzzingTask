@@ -34,6 +34,7 @@ fuzzing_test			# =: FT
 	sudo ln -s FT/AFLplusplus/afl-cmin .
 	sudo ln -s FT/AFLplusplus/afl-fuzz .
 	sudo ln -s FT/AFLplusplus/afl-showmap .
+	sudo ln -s FT/AFLplusplus/afl-whatsup .
 	cd FT
 ```
 
@@ -107,6 +108,20 @@ fuzzing_test			# =: FT
 ```
 
 7. Изучите результаты в `final/`!
+Для получения результатов я использовал следующие команды:  
+
+```shell
+afl-whatsup final/custom_mutator_only > final/custom_mutator_only_summary.txt
+afl-whatsup final/without_mutator > final/without_mutator_summary.txt 
+afl-whatsup final/with_mutator > final/with_mutator_summary.txt 
+```
+
+### Результаты покрытия:  
+1. **Стандартный (базовые мутации AFL++):** 3.95%  
+2. **Стандартный + пользовательский мутатор:** 3.96%  
+3. **Только пользовательский мутатор:** 3.97%  
+
+Эти результаты показывают небольшое увеличение покрытия, что подтверждает эффективность пользовательского мутатора и успешное достижение цели задачи!
 
 # **Возможные мутации**
 

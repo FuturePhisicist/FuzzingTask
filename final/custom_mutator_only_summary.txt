@@ -1,0 +1,36 @@
+/usr/local/bin/afl-whatsup status check tool for afl-fuzz by Michal Zalewski
+
+Individual fuzzers
+==================
+
+>>> ../ugrep/bin/ug instance: fuzzer01 (0 days, 5 hrs) fuzzer PID: 1891918 <<<
+
+  Instance is dead or running remotely, skipping.
+
+>>> ../ugrep/bin/ug instance: fuzzer02 (0 days, 5 hrs) fuzzer PID: 1892458 <<<
+
+  Instance is dead or running remotely, skipping.
+
+>>> ../ugrep/bin/ug instance: fuzzer03 (0 days, 5 hrs) fuzzer PID: 1893202 <<<
+
+  Instance is dead or running remotely, skipping.
+
+>>> ../ugrep/bin/ug instance: fuzzer04 (0 days, 5 hrs) fuzzer PID: 1894299 <<<
+
+  Instance is dead or running remotely, skipping.
+
+Summary stats
+=============
+
+        Fuzzers alive : 0
+       Dead or remote : 4 (excluded from stats)
+       Total run time : 0 seconds
+          Total execs : 0 thousands
+     Cumulative speed : 0 execs/sec
+        Pending items : 0 faves, 0 total
+     Coverage reached : 3.97%
+        Crashes saved : 0
+          Hangs saved : 0
+ Cycles without finds : 264/9/1/0
+   Time without finds : 0
+

@@ -33,6 +33,7 @@ Make **shortcuts**:
 	sudo ln -s FT/AFLplusplus/afl-cmin .
 	sudo ln -s FT/AFLplusplus/afl-fuzz .
 	sudo ln -s FT/AFLplusplus/afl-showmap .
+	sudo ln -s FT/AFLplusplus/afl-whatsup .
 	cd FT
 ```
 3. Install `ugrep` so that it can be ***fuzzed***
@@ -101,6 +102,20 @@ Then
 	bash run_custom_mutations_only_4.sh
 ```
 7. Inspect the results in `final/`!
+To obtain the results, I used the following commands:  
+
+```shell
+	afl-whatsup final/custom_mutator_only > final/custom_mutator_only_summary.txt
+	afl-whatsup final/without_mutator > final/without_mutator_summary.txt 
+	afl-whatsup final/with_mutator > final/with_mutator_summary.txt 
+```
+
+*Coverage Results*:  
+1. **Standard (default AFL++ mutations):** 3.95%  
+2. **Standard + Custom Mutator:** 3.96%  
+3. **Custom Mutator Only:** 3.97%  
+
+These results indicate a slight increase in coverage, confirming that the custom mutator contributed to the fuzzing effectiveness and successfully met the objective of the task!
 
 # Possible mutations
 
