@@ -5,6 +5,10 @@
 </div>
 <br>
 
+# Выбранный проект
+
+Был выбран проект `ugrep` (https://github.com/Genivia/ugrep), который представляет собой утилиту для поиска в файлах с поддержкой регулярных выражений. Это C++ проект с удобным CLI-интерфейсом, что делает его подходящим для фаззинга, поскольку он принимает на вход текстовые данные.
+
 # Пошаговая инструкция
 
 1. **Дерево каталогов**
@@ -19,92 +23,92 @@ fuzzing_test			# =: FT
 
 2. Установите `AFLplusplus`
 ```shell
-	# https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/INSTALL.md
-	git clone https://github.com/AFLplusplus/AFLplusplus.git
-	cd AFLplusplus
-	make
-	# ИЛИ
-	make PERFORMANCE=1
+# https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/INSTALL.md
+git clone https://github.com/AFLplusplus/AFLplusplus.git
+cd AFLplusplus
+make
+# ИЛИ
+make PERFORMANCE=1
 ```
 Создайте **ярлыки**:
 ```shell
-	cd /usr/local/bin/
-	sudo ln -s FT/AFLplusplus/afl-clang-fast .
-	sudo ln -s FT/AFLplusplus/afl-clang-fast++ .
-	sudo ln -s FT/AFLplusplus/afl-cmin .
-	sudo ln -s FT/AFLplusplus/afl-fuzz .
-	sudo ln -s FT/AFLplusplus/afl-showmap .
-	sudo ln -s FT/AFLplusplus/afl-whatsup .
-	cd FT
+cd /usr/local/bin/
+sudo ln -s FT/AFLplusplus/afl-clang-fast .
+sudo ln -s FT/AFLplusplus/afl-clang-fast++ .
+sudo ln -s FT/AFLplusplus/afl-cmin .
+sudo ln -s FT/AFLplusplus/afl-fuzz .
+sudo ln -s FT/AFLplusplus/afl-showmap .
+sudo ln -s FT/AFLplusplus/afl-whatsup .
+cd FT
 ```
 
 3. Установите `ugrep` так, чтобы можно было проводить ***фаззинг***
 ```shell
-	git clone https://github.com/Genivia/ugrep.git
-	cd ugrep
-	CC=afl-clang-fast CXX=afl-clang-fast++ ./build.sh --disable-shared
-	# Проверка
-	afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
-	# ИЛИ
-	AFL_DEBUG=1 afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
+git clone https://github.com/Genivia/ugrep.git
+cd ugrep
+CC=afl-clang-fast CXX=afl-clang-fast++ ./build.sh --disable-shared
+# Проверка
+afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
+# ИЛИ
+AFL_DEBUG=1 afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
 ```
 
 4. Сгенерируйте **текст:**
 ```shell
-	python3 get_invalid_text.py
-	python3 get_valid_ascii.py
-	python3 get_valid_text.py
+python3 get_invalid_text.py
+python3 get_valid_ascii.py
+python3 get_valid_text.py
 ```
 Получите **code_samples:**
 ```shell
-	# https://github.com/TheRenegadeCoder/sample-programs/tree/main/archive
-	cd ..
-	git clone https://github.com/TheRenegadeCoder/sample-programs.git
-	cp sample-programs/archive FuzzingTask/input_texts/code_samples
-	cd FuzzingTask
+# https://github.com/TheRenegadeCoder/sample-programs/tree/main/archive
+cd ..
+git clone https://github.com/TheRenegadeCoder/sample-programs.git
+cp sample-programs/archive FuzzingTask/input_texts/code_samples
+cd FuzzingTask
 ```
 
 5. Получите **регулярные выражения**
 ```shell
-	# https://github.com/SBULeeLab/LinguaFranca-FSE19/tree/master/data/production-regexes
-	cd ..
-	git clone https://github.com/SBULeeLab/LinguaFranca-FSE19.git
-	cp LinguaFranca-FSE19/data/production-regexes/uniq-regexes-8.json FuzzingTask/
-	cd FuzzingTask
+# https://github.com/SBULeeLab/LinguaFranca-FSE19/tree/master/data/production-regexes
+cd ..
+git clone https://github.com/SBULeeLab/LinguaFranca-FSE19.git
+cp LinguaFranca-FSE19/data/production-regexes/uniq-regexes-8.json FuzzingTask/
+cd FuzzingTask
 ``` 
 ```shell
-	python3 get_some_regexes_1.py # Будет получено 1000 случайных регулярных выражений
+python3 get_some_regexes_1.py # Будет получено 1000 случайных регулярных выражений
 ```
 **Минимизируйте** корпус регулярных выражений до **111 (!):**
 ```shell
-	afl-cmin -i some_regexes -o unique_regexes -T all -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-cmin -i some_regexes -o unique_regexes -T all -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
 ```
 
 6. **Фаззинг!**
 ```shell
-	bash aflplusplus_system_tweak.sh # требуется sudo
+bash aflplusplus_system_tweak.sh # требуется sudo
 ```
 
 В разных терминалах (или используя `tmux`) запустите:
 ```shell
-	bash run_without_mutations_1.sh
-	bash run_without_mutations_2.sh
-	bash run_without_mutations_3.sh
-	bash run_without_mutations_4.sh
+bash run_without_mutations_1.sh
+bash run_without_mutations_2.sh
+bash run_without_mutations_3.sh
+bash run_without_mutations_4.sh
 ```
 Затем:
 ```shell
-	bash run_with_mutations_1.sh
-	bash run_with_mutations_2.sh
-	bash run_with_mutations_3.sh
-	bash run_with_mutations_4.sh
+bash run_with_mutations_1.sh
+bash run_with_mutations_2.sh
+bash run_with_mutations_3.sh
+bash run_with_mutations_4.sh
 ```
 Затем:
 ```shell
-	bash run_custom_mutations_only_1.sh
-	bash run_custom_mutations_only_2.sh
-	bash run_custom_mutations_only_3.sh
-	bash run_custom_mutations_only_4.sh
+bash run_custom_mutations_only_1.sh
+bash run_custom_mutations_only_2.sh
+bash run_custom_mutations_only_3.sh
+bash run_custom_mutations_only_4.sh
 ```
 
 7. Изучите результаты в `final/`!
@@ -116,12 +120,40 @@ afl-whatsup final/without_mutator > final/without_mutator_summary.txt
 afl-whatsup final/with_mutator > final/with_mutator_summary.txt 
 ```
 
-### Результаты покрытия:  
-1. **Стандартный (базовые мутации AFL++):** 3.95%  
-2. **Стандартный + пользовательский мутатор:** 3.96%  
-3. **Только пользовательский мутатор:** 3.97%  
+### Результаты покрытия:
+
+| #  | Метод                                  | Покрытие (%)|
+|----|----------------------------------------|-------------|
+| 1  | Стандартный (базовые мутации AFL++)    | 3.95%       |
+| 2  | Стандартный + пользовательский мутатор | 3.96%       |
+| 3  | Только пользовательский мутатор        | 3.97%       |
+
+### Выводы
 
 Эти результаты показывают небольшое увеличение покрытия, что подтверждает эффективность пользовательского мутатора и успешное достижение цели задачи!
+
+### Скриншоты
+
+#### Стандартный
+
+![Фаззер 1](final/without_mutator_1.png)
+![Фаззер 2](final/without_mutator_2.png)
+![Фаззер 3](final/without_mutator_3.png)
+![Фаззер 4](final/without_mutator_4.png)
+
+#### Стандартный + пользовательский мутатор
+
+![Фаззер 1](final/mixed_1.png)
+![Фаззер 2](final/mixed_2.png)
+![Фаззер 3](final/mixed_3.png)
+![Фаззер 4](final/mixed_4.png)
+
+#### Только пользовательский мутатор
+
+![Фаззер 1](final/custom_mutator_only_1.png)
+![Фаззер 2](final/custom_mutator_only_2.png)
+![Фаззер 3](final/custom_mutator_only_3.png)
+![Фаззер 4](final/custom_mutator_only_4.png)
 
 # **Возможные мутации**
 

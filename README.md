@@ -5,6 +5,10 @@
 </div>
 <br>
 
+# Selected Project
+
+The chosen project is `ugrep` (https://github.com/Genivia/ugrep), which is a utility for searching within files with support for regular expressions. It is a C++ project with a user-friendly CLI interface, making it suitable for fuzzing since it accepts textual input.
+
 # Step-by-step instructions
 
 1. **Directories' tree**
@@ -18,104 +22,132 @@ fuzzing_test			# =: FT
 ```
 2. Install `AFLplusplus`
 ```shell
-	# https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/INSTALL.md
-	git clone https://github.com/AFLplusplus/AFLplusplus.git
-	cd AFLplusplus
-	make
-	# OR
-	make PERFORMANCE=1
+# https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/INSTALL.md
+git clone https://github.com/AFLplusplus/AFLplusplus.git
+cd AFLplusplus
+make
+# OR
+make PERFORMANCE=1
 ```
 Make **shortcuts**:
 ```shell
-	cd /usr/local/bin/
-	sudo ln -s FT/AFLplusplus/afl-clang-fast .
-	sudo ln -s FT/AFLplusplus/afl-clang-fast++ .
-	sudo ln -s FT/AFLplusplus/afl-cmin .
-	sudo ln -s FT/AFLplusplus/afl-fuzz .
-	sudo ln -s FT/AFLplusplus/afl-showmap .
-	sudo ln -s FT/AFLplusplus/afl-whatsup .
-	cd FT
+cd /usr/local/bin/
+sudo ln -s FT/AFLplusplus/afl-clang-fast .
+sudo ln -s FT/AFLplusplus/afl-clang-fast++ .
+sudo ln -s FT/AFLplusplus/afl-cmin .
+sudo ln -s FT/AFLplusplus/afl-fuzz .
+sudo ln -s FT/AFLplusplus/afl-showmap .
+sudo ln -s FT/AFLplusplus/afl-whatsup .
+cd FT
 ```
 3. Install `ugrep` so that it can be ***fuzzed***
 ```shell
-	git clone https://github.com/Genivia/ugrep.git
-	cd ugrep
-	CC=afl-clang-fast CXX=afl-clang-fast++ ./build.sh --disable-shared
-	# To check
-	afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
-	# OR
-	AFL_DEBUG=1 afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
+git clone https://github.com/Genivia/ugrep.git
+cd ugrep
+CC=afl-clang-fast CXX=afl-clang-fast++ ./build.sh --disable-shared
+# To check
+afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
+# OR
+AFL_DEBUG=1 afl-showmap -o /dev/null -- ./bin/ugrep ugrepdsdfds
 ```
 4. Generate some **text:**
 ```shell
-	python3 get_invalid_text.py
-	python3 get_valid_ascii.py
-	python3 get_valid_text.py
+python3 get_invalid_text.py
+python3 get_valid_ascii.py
+python3 get_valid_text.py
 ```
 Get **code_samples:**
 ```shell
-	# https://github.com/TheRenegadeCoder/sample-programs/tree/main/archive
-	cd ..
-	git clone https://github.com/TheRenegadeCoder/sample-programs.git
-	cp sample-programs/archive FuzzingTask/input_texts/code_samples
-	cd FuzzingTask
+# https://github.com/TheRenegadeCoder/sample-programs/tree/main/archive
+cd ..
+git clone https://github.com/TheRenegadeCoder/sample-programs.git
+cp sample-programs/archive FuzzingTask/input_texts/code_samples
+cd FuzzingTask
 ```
 5. Get **regexes**
 ```shell
-	# https://github.com/SBULeeLab/LinguaFranca-FSE19/tree/master/data/production-regexes
-	cd ..
-	git clone https://github.com/SBULeeLab/LinguaFranca-FSE19.git
-	cp LinguaFranca-FSE19/data/production-regexes/uniq-regexes-8.json FuzzingTask/
-	cd FuzzingTask
+# https://github.com/SBULeeLab/LinguaFranca-FSE19/tree/master/data/production-regexes
+cd ..
+git clone https://github.com/SBULeeLab/LinguaFranca-FSE19.git
+cp LinguaFranca-FSE19/data/production-regexes/uniq-regexes-8.json FuzzingTask/
+cd FuzzingTask
 ``` 
 ```shell
-	python3 get_some_regexes_1.py # It will get 1000 random regexes
+python3 get_some_regexes_1.py # It will get 1000 random regexes
 ```
 **Minimize** regexes corpus to **111 (!):**
 ```shell
-	afl-cmin -i some_regexes -o unique_regexes -T all -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
+afl-cmin -i some_regexes -o unique_regexes -T all -- ../ugrep/bin/ug -nr --color=never -e @@ input_texts
 ```
 6. **Fuzz!**
 ```shell
-	bash aflplusplus_system_tweak.sh # requires sudo
+bash aflplusplus_system_tweak.sh # requires sudo
 ```
 
 In different terminals (or using `tmux`), run:
 ```shell
-	bash run_without_mutations_1.sh
-	bash run_without_mutations_2.sh
-	bash run_without_mutations_3.sh
-	bash run_without_mutations_4.sh
+bash run_without_mutations_1.sh
+bash run_without_mutations_2.sh
+bash run_without_mutations_3.sh
+bash run_without_mutations_4.sh
 ```
 Then
 ```shell
-	bash run_with_mutations_1.sh
-	bash run_with_mutations_2.sh
-	bash run_with_mutations_3.sh
-	bash run_with_mutations_4.sh
+bash run_with_mutations_1.sh
+bash run_with_mutations_2.sh
+bash run_with_mutations_3.sh
+bash run_with_mutations_4.sh
 ```
 Then
 ```shell
-	bash run_custom_mutations_only_1.sh
-	bash run_custom_mutations_only_2.sh
-	bash run_custom_mutations_only_3.sh
-	bash run_custom_mutations_only_4.sh
+bash run_custom_mutations_only_1.sh
+bash run_custom_mutations_only_2.sh
+bash run_custom_mutations_only_3.sh
+bash run_custom_mutations_only_4.sh
 ```
 7. Inspect the results in `final/`!
 To obtain the results, I used the following commands:  
 
 ```shell
-	afl-whatsup final/custom_mutator_only > final/custom_mutator_only_summary.txt
-	afl-whatsup final/without_mutator > final/without_mutator_summary.txt 
-	afl-whatsup final/with_mutator > final/with_mutator_summary.txt 
+afl-whatsup final/custom_mutator_only > final/custom_mutator_only_summary.txt
+afl-whatsup final/without_mutator > final/without_mutator_summary.txt 
+afl-whatsup final/with_mutator > final/with_mutator_summary.txt 
 ```
 
-*Coverage Results*:  
-1. **Standard (default AFL++ mutations):** 3.95%  
-2. **Standard + Custom Mutator:** 3.96%  
-3. **Custom Mutator Only:** 3.97%  
+### Coverage Results:
 
-These results indicate a slight increase in coverage, confirming that the custom mutator contributed to the fuzzing effectiveness and successfully met the objective of the task!
+| #  | Method                                 | Coverage (%)|
+|----|----------------------------------------|-------------|
+| 1  | Standard (basic AFL++ mutations)       | 3.95%       |
+| 2  | Standard + custom mutator              | 3.96%       |
+| 3  | Custom mutator only                    | 3.97%       |
+
+### Conclusions
+
+These results show a slight increase in coverage, confirming the effectiveness of the custom mutator and the successful achievement of the task's goal!
+
+### Screenshots
+
+#### Standard
+
+![Fuzzer 1](final/without_mutator_1.png)  
+![Fuzzer 2](final/without_mutator_2.png)  
+![Fuzzer 3](final/without_mutator_3.png)  
+![Fuzzer 4](final/without_mutator_4.png)  
+
+#### Standard + Custom Mutator
+
+![Fuzzer 1](final/mixed_1.png)  
+![Fuzzer 2](final/mixed_2.png)  
+![Fuzzer 3](final/mixed_3.png)  
+![Fuzzer 4](final/mixed_4.png)  
+
+#### Custom Mutator Only
+
+![Fuzzer 1](final/custom_mutator_only_1.png)  
+![Fuzzer 2](final/custom_mutator_only_2.png)  
+![Fuzzer 3](final/custom_mutator_only_3.png)  
+![Fuzzer 4](final/custom_mutator_only_4.png)  
 
 # Possible mutations
 
